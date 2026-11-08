@@ -31,4 +31,36 @@ const currentSrc = mainPhotoEl.getAttribute('src');
 mainPhotoEl.setAttribute('src','./assets/berry-cake.jpg');
 mainPhotoEl.setAttribute('alt','A berry cake served at the cafe');
 
-console.log(mainPhotoEl)
+// console.log(mainPhotoEl)
+
+const buttonEl = document.getElementById('bg-color-btn');
+
+const bodyEl = document.querySelector('body');
+
+// console.log(bodyEl)
+
+const handleBackgroundChange = (() => {
+    bodyEl.style.backgroundColor = 'lavender'
+})
+
+buttonEl.addEventListener('click',handleBackgroundChange);
+
+///////////////
+
+const ListEl = document.querySelectorAll('.specialty-status')
+
+const soldoutBtnEl = document.querySelectorAll('.sold-out-btn')
+
+
+soldoutBtnEl.forEach((button, index) => {
+    if (index === 0) {
+        ListEl[index].textContent = 'Available'
+    } else if (index === 1) {
+        ListEl[index].textContent = 'Sold Out'
+    } else {
+        ListEl[index].textContent = 'Available'
+    }
+    button.addEventListener('click', () => {
+        ListEl[index].textContent = 'Sold Out';
+    });
+});
